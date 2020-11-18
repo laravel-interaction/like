@@ -1,7 +1,7 @@
 {
-    "name": "zing/package-skeleton-laravel",
-    "description": "A skeleton repository for Laravel Packages",
-    "keywords": ["laravel", "package", "skeleton"],
+    "name": "zing/laravel-like",
+    "description": "User like/unlike behaviour for Laravel.",
+    "keywords": ["laravel", "like"],
     "license": "MIT",
     "authors": [
         {
@@ -17,6 +17,7 @@
     },
     "require": {
         "php": "^7.2 || ^8.0",
+        "illuminate/database": "^6.0 || ^7.0 || ^8.0",
         "illuminate/support": "^6.0 || ^7.0 || ^8.0"
     },
     "require-dev": {
@@ -27,12 +28,19 @@
     },
     "autoload": {
         "psr-4": {
-            "Zing\\Skeleton\\": "src"
+            "Zing\\LaravelLike\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zing\\Skeleton\\Tests\\": "tests"
+            "Zing\\LaravelLike\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zing\\LaravelLike\\LikeServiceProvider"
+            ]
         }
     },
     "scripts": {
@@ -52,15 +60,5 @@
         "test": [
             "@test:phpunit"
         ]
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Zing\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "Zing\\Skeleton\\Facades\\Skeleton"
-            }
-        }
     }
 }
