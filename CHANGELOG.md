@@ -7,3 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- changelog-linker -->
 
 ## Unreleased
+
+### Changed
+
+- [#1] Bump codecov/codecov-action from v1.0.14 to v1.0.15
+
+[#1]: https://github.com/zingimmick/laravel-like/pull/1
