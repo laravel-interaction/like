@@ -49,7 +49,7 @@ trait Fan
      */
     public function hasLiked(Model $object): bool
     {
-        return tap($this->relationLoaded('likes') ? $this->likes : $this->likes())
+        return ($this->relationLoaded('likes') ? $this->likes : $this->likes())
             ->where('likeable_id', $object->getKey())
             ->where('likeable_type', $object->getMorphClass())
             ->count() > 0;

@@ -35,7 +35,7 @@ trait Likeable
             return $this->fans->contains($user);
         }
 
-        return tap($this->relationLoaded('likes') ? $this->likes : $this->likes())
+        return ($this->relationLoaded('likes') ? $this->likes : $this->likes())
             ->where(config('like.column_names.user_foreign_key'), $user->getKey())->count() > 0;
     }
 
