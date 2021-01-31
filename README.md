@@ -103,7 +103,7 @@ $channels->each(function (Channel $channel){
 | Event | Fired |
 | --- | --- |
 | `Zing\LaravelLike\Events\Liked` | When an object get liked. |
-| `Zing\LaravelLike\Events\Unliked` | When an object get like cancellation. |
+| `Zing\LaravelLike\Events\Unliked` | When an object get unliked. |
 
 ## License
 
