@@ -19,6 +19,10 @@ trait Fan
      */
     public function like(Model $object): void
     {
+        if ($this->hasLiked($object)) {
+            return;
+        }
+
         $this->likedItems(get_class($object))->attach($object->getKey());
     }
 

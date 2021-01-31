@@ -98,6 +98,13 @@ $channels->each(function (Channel $channel){
 });
 ```
 
+### Events
+
+| Event | Fired |
+| --- | --- |
+| `Zing\LaravelLike\Events\Liked` | When an object get liked. |
+| `Zing\LaravelLike\Events\Unliked` | When an object get like cancellation. |
+
 ## License
 
 Laravel Like is an open-sourced software licensed under the [MIT license](LICENSE).
