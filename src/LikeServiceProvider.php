@@ -46,6 +46,6 @@ class LikeServiceProvider extends ServiceProvider
 
     private function shouldLoadMigrations(): bool
     {
-        return config('like.load_migrations');
+        return (bool) config('like.load_migrations');
     }
 }
