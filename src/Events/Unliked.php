@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Zing\LaravelLike\Events;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Unliked
+{
+    /**
+     * @var \Illuminate\Database\Eloquent\Model
+     */
+    public $like;
+
+    /**
+     * Liked constructor.
+     *
+     * @param \Illuminate\Database\Eloquent\Model $like
+     */
+    public function __construct(Model $like)
+    {
+        $this->like = $like;
+    }
+}

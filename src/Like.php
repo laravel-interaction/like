@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Zing\LaravelLike\Events\Liked;
+use Zing\LaravelLike\Events\Unliked;
 
 /**
  * @property \Illuminate\Database\Eloquent\Model $user
@@ -21,6 +23,11 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 class Like extends MorphPivot
 {
     public $incrementing = true;
+
+    protected $dispatchesEvents = [
+        'created' => Liked::class,
+        'deleted' => Unliked::class,
+    ];
 
     public function getTable()
     {
