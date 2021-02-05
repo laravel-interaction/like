@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Str;
 use Zing\LaravelLike\Events\Liked;
 use Zing\LaravelLike\Events\Unliked;
 
@@ -22,7 +23,25 @@ use Zing\LaravelLike\Events\Unliked;
  */
 class Like extends MorphPivot
 {
-    public $incrementing = true;
+    protected function uuids(): bool
+    {
+        return (bool) config('like.uuids');
+    }
+
+    public function getIncrementing(): bool
+    {
+        return $this->uuids() ? true : parent::getIncrementing();
+    }
+
+    public function getKeyName(): string
+    {
+        return $this->uuids() ? 'uuid' : parent::getKeyName();
+    }
+
+    public function getKeyType(): string
+    {
+        return $this->uuids() ? 'string' : parent::getKeyType();
+    }
 
     protected $dispatchesEvents = [
         'created' => Liked::class,
@@ -32,6 +51,19 @@ class Like extends MorphPivot
     public function getTable()
     {
         return config('like.table_names.likes') ?: parent::getTable();
+    }
+
+    protected static function booted(): void
+    {
+        parent::booted();
+
+        static::creating(
+            function (self $like): void {
+                if ($like->uuids()) {
+                    $like->{$like->getKeyName()} = Str::orderedUuid();
+                }
+            }
+        );
     }
 
     /**
