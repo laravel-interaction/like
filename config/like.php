@@ -6,6 +6,7 @@ use Zing\LaravelLike\Like;
 
 return [
     'load_migrations' => true,
+    'uuids' => false,
     'models' => [
         'user' => \App\User::class,
         'like' => Like::class,

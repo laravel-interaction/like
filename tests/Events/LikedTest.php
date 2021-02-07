@@ -16,7 +16,7 @@ class LikedTest extends TestCase
     {
         $user = User::query()->create();
         $channel = Channel::query()->create();
-        Event::fake();
+        Event::fake([Liked::class]);
         $user->like($channel);
         Event::assertDispatchedTimes(Liked::class);
     }
@@ -25,7 +25,7 @@ class LikedTest extends TestCase
     {
         $user = User::query()->create();
         $channel = Channel::query()->create();
-        Event::fake();
+        Event::fake([Liked::class]);
         $user->like($channel);
         $user->like($channel);
         $user->like($channel);
@@ -36,7 +36,7 @@ class LikedTest extends TestCase
     {
         $user = User::query()->create();
         $channel = Channel::query()->create();
-        Event::fake();
+        Event::fake([Liked::class]);
         $user->toggleLike($channel);
         Event::assertDispatchedTimes(Liked::class);
     }

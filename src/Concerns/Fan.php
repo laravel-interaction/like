@@ -33,6 +33,10 @@ trait Fan
      */
     public function unlike(Model $object): void
     {
+        if ($this->hasNotLiked($object)) {
+            return;
+        }
+
         $this->likedItems(get_class($object))->detach($object->getKey());
     }
 

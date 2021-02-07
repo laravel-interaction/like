@@ -27,7 +27,8 @@ class UnlikedTest extends TestCase
         $user = User::query()->create();
         $channel = Channel::query()->create();
         $user->like($channel);
-        Event::fake();
+        Event::fake([Unliked::class]);
+        $user->unlike($channel);
         $user->unlike($channel);
         Event::assertDispatchedTimes(Unliked::class);
     }
@@ -36,7 +37,7 @@ class UnlikedTest extends TestCase
     {
         $user = User::query()->create();
         $channel = Channel::query()->create();
-        Event::fake();
+        Event::fake([Unliked::class]);
         $user->toggleLike($channel);
         $user->toggleLike($channel);
         Event::assertDispatchedTimes(Unliked::class);
