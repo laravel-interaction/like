@@ -9,7 +9,7 @@ User like/unlike behaviour for Laravel.
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/downloads" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/v/unstable.svg" alt="Latest Unstable Version"></a>
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/license" alt="License"></a>
-<a href="https://codeclimate.com/github/laravel-interaction/like/maintainability"><img src="https://api.codeclimate.com/v1/badges/82036f5ecf894e9c395d/maintainability" alt="Code Climate" /></a>
+<a href="https://codeclimate.com/github/laravel-interaction/like/maintainability"><img src="https://api.codeclimate.com/v1/badges/8afd0df31b4b1afcd51d/maintainability" alt="Code Climate" /></a>
 </p>
 
 > **Requires [PHP 7.2.0+](https://php.net/releases/)**
