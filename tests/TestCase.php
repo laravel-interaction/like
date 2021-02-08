@@ -39,6 +39,7 @@ class TestCase extends BaseTestCase
             [
                 'database.default' => 'testing',
                 'like.models.user' => User::class,
+                'like.uuids' => true,
             ]
         );
     }

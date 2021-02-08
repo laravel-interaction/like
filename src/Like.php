@@ -53,9 +53,9 @@ class Like extends MorphPivot
         return config('like.table_names.likes') ?: parent::getTable();
     }
 
-    protected static function booted(): void
+    protected static function boot(): void
     {
-        parent::booted();
+        parent::boot();
 
         static::creating(
             function (self $like): void {
