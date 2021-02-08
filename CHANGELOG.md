@@ -22,9 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#1] Bump codecov/codecov-action from v1.0.14 to v1.0.15
 
-[#1]: https://github.com/zingimmick/laravel-like/pull/1
-[#6]: https://github.com/zingimmick/laravel-like/pull/6
-[#5]: https://github.com/zingimmick/laravel-like/pull/5
-[#4]: https://github.com/zingimmick/laravel-like/pull/4
-[#2]: https://github.com/zingimmick/laravel-like/pull/2
-[0.0.2]: https://github.com/zingimmick/laravel-like/compare/0.0.1...0.0.2
+[#1]: https://github.com/laravel-interaction/like/pull/1
+[#6]: https://github.com/laravel-interaction/like/pull/6
+[#5]: https://github.com/laravel-interaction/like/pull/5
+[#4]: https://github.com/laravel-interaction/like/pull/4
+[#2]: https://github.com/laravel-interaction/like/pull/2
+[0.0.2]: https://github.com/laravel-interaction/like/compare/0.0.1...0.0.2

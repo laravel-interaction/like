@@ -1,5 +1,5 @@
 {
-    "name": "zing/laravel-like",
+    "name": "laravel-interaction/like",
     "description": "User like/unlike behaviour for Laravel.",
     "keywords": ["laravel", "like"],
     "license": "MIT",

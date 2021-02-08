@@ -3,13 +3,13 @@
 User like/unlike behaviour for Laravel.
 
 <p align="center">
-<a href="https://github.com/zingimmick/laravel-like/actions"><img src="https://github.com/zingimmick/laravel-like/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://codecov.io/gh/zingimmick/laravel-like"><img src="https://codecov.io/gh/zingimmick/laravel-like/branch/master/graph/badge.svg" alt="Code Coverage" /></a>
-<a href="https://packagist.org/packages/zing/laravel-like"><img src="https://poser.pugx.org/zing/laravel-like/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/zing/laravel-like"><img src="https://poser.pugx.org/zing/laravel-like/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/zing/laravel-like"><img src="https://poser.pugx.org/zing/laravel-like/v/unstable.svg" alt="Latest Unstable Version"></a>
-<a href="https://packagist.org/packages/zing/laravel-like"><img src="https://poser.pugx.org/zing/laravel-like/license" alt="License"></a>
-<a href="https://codeclimate.com/github/zingimmick/laravel-like/maintainability"><img src="https://api.codeclimate.com/v1/badges/82036f5ecf894e9c395d/maintainability" alt="Code Climate" /></a>
+<a href="https://github.com/laravel-interaction/like/actions"><img src="https://github.com/laravel-interaction/like/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://codecov.io/gh/laravel-interaction/like"><img src="https://codecov.io/gh/laravel-interaction/like/branch/master/graph/badge.svg" alt="Code Coverage" /></a>
+<a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/v/unstable.svg" alt="Latest Unstable Version"></a>
+<a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/license" alt="License"></a>
+<a href="https://codeclimate.com/github/laravel-interaction/like/maintainability"><img src="https://api.codeclimate.com/v1/badges/82036f5ecf894e9c395d/maintainability" alt="Code Climate" /></a>
 </p>
 
 > **Requires [PHP 7.2.0+](https://php.net/releases/)**
@@ -17,7 +17,7 @@ User like/unlike behaviour for Laravel.
 Require Laravel Like using [Composer](https://getcomposer.org):
 
 ```bash
-composer require zing/laravel-like
+composer require laravel-interaction/like
 ```
 
 ## Usage
