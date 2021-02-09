@@ -10,26 +10,42 @@ use LaravelInteraction\Like\Tests\TestCase;
 use Mockery;
 
 class LikeableTest extends TestCase
+{    public function modelClasses(): array
 {
-    public function testLikes(): void
-    {
-        $user = User::query()->create();
-        $channel = Channel::query()->create();
-        $user->like($channel);
-        self::assertSame(1, $channel->likes()->count());
-        self::assertSame(1, $channel->likes->count());
-    }
+    return[
+        [Channel::class],
+        [User::class],
+    ];
+}
 
-    public function testFansCount(): void
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testLikes(string $modelClass): void
     {
         $user = User::query()->create();
-        $channel = Channel::query()->create();
-        $user->like($channel);
-        self::assertSame(1, $channel->fansCount());
-        $user->unlike($channel);
-        self::assertSame(1, $channel->fansCount());
-        $channel->loadCount('fans');
-        self::assertSame(0, $channel->fansCount());
+        $model = $modelClass::query()->create();
+        $user->like($model);
+        self::assertSame(1, $model->likeableLikes()->count());
+        self::assertSame(1, $model->likeableLikes->count());
+    }
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testFansCount(string $modelClass): void
+    {
+        $user = User::query()->create();
+        $model = $modelClass::query()->create();
+        $user->like($model);
+        self::assertSame(1, $model->fansCount());
+        $user->unlike($model);
+        self::assertSame(1, $model->fansCount());
+        $model->loadCount('fans');
+        self::assertSame(0, $model->fansCount());
     }
 
     public function data(): array
@@ -66,62 +82,82 @@ class LikeableTest extends TestCase
         self::assertSame($twoPrecision, $channel->fansCountForHumans(2));
         self::assertSame($halfDown, $channel->fansCountForHumans(2, PHP_ROUND_HALF_DOWN));
     }
-
-    public function testIsLikedBy(): void
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testIsLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
-        $channel = Channel::query()->create();
-        self::assertFalse($channel->isLikedBy($channel));
-        $user->like($channel);
-        self::assertTrue($channel->isLikedBy($user));
-        $channel->load('fans');
-        $user->unlike($channel);
-        self::assertTrue($channel->isLikedBy($user));
-        $channel->load('fans');
-        self::assertFalse($channel->isLikedBy($user));
+        $model = $modelClass::query()->create();
+        self::assertFalse($model->isLikedBy($model));
+        $user->like($model);
+        self::assertTrue($model->isLikedBy($user));
+        $model->load('fans');
+        $user->unlike($model);
+        self::assertTrue($model->isLikedBy($user));
+        $model->load('fans');
+        self::assertFalse($model->isLikedBy($user));
     }
-
-    public function testIsNotLikedBy(): void
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testIsNotLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
-        $channel = Channel::query()->create();
-        self::assertTrue($channel->isNotLikedBy($channel));
-        $user->like($channel);
-        self::assertFalse($channel->isNotLikedBy($user));
-        $channel->load('fans');
-        $user->unlike($channel);
-        self::assertFalse($channel->isNotLikedBy($user));
-        $channel->load('fans');
-        self::assertTrue($channel->isNotLikedBy($user));
+        $model = $modelClass::query()->create();
+        self::assertTrue($model->isNotLikedBy($model));
+        $user->like($model);
+        self::assertFalse($model->isNotLikedBy($user));
+        $model->load('fans');
+        $user->unlike($model);
+        self::assertFalse($model->isNotLikedBy($user));
+        $model->load('fans');
+        self::assertTrue($model->isNotLikedBy($user));
     }
-
-    public function testFans(): void
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testFans(string $modelClass): void
     {
         $user = User::query()->create();
-        $channel = Channel::query()->create();
-        $user->like($channel);
-        self::assertSame(1, $channel->fans()->count());
-        $user->unlike($channel);
-        self::assertSame(0, $channel->fans()->count());
+        $model = $modelClass::query()->create();
+        $user->like($model);
+        self::assertSame(1, $model->fans()->count());
+        $user->unlike($model);
+        self::assertSame(0, $model->fans()->count());
     }
-
-    public function testScopeWhereLikedBy(): void
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testScopeWhereLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
         $other = User::query()->create();
-        $channel = Channel::query()->create();
-        $user->like($channel);
-        self::assertSame(1, Channel::query()->whereLikedBy($user)->count());
-        self::assertSame(0, Channel::query()->whereLikedBy($other)->count());
+        $model = $modelClass::query()->create();
+        $user->like($model);
+        self::assertSame(1, $modelClass::query()->whereLikedBy($user)->count());
+        self::assertSame(0, $modelClass::query()->whereLikedBy($other)->count());
     }
-
-    public function testScopeWhereNotLikedBy(): void
+    /**
+     * @dataProvider modelClasses
+     *
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     */
+    public function testScopeWhereNotLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
         $other = User::query()->create();
-        $channel = Channel::query()->create();
-        $user->like($channel);
-        self::assertSame(0, Channel::query()->whereNotLikedBy($user)->count());
-        self::assertSame(1, Channel::query()->whereNotLikedBy($other)->count());
+        $model = $modelClass::query()->create();
+        $user->like($model);
+        self::assertSame($modelClass::query()->whereKeyNot($model->getKey())->count(), $modelClass::query()->whereNotLikedBy($user)->count());
+        self::assertSame($modelClass::query()->count(), $modelClass::query()->whereNotLikedBy($other)->count());
     }
 }

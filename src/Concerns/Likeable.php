@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use function is_a;
 
 /**
- * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $likes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $likeableLikes
  * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Concerns\Fan[] $fans
  * @property-read int|null $fans_count
  *
@@ -35,7 +35,7 @@ trait Likeable
             return $this->fans->contains($user);
         }
 
-        return ($this->relationLoaded('likes') ? $this->likes : $this->likes())
+        return ($this->relationLoaded('likeableLikes') ? $this->likeableLikes : $this->likeableLikes())
             ->where(config('like.column_names.user_foreign_key'), $user->getKey())->count() > 0;
     }
 
@@ -47,7 +47,7 @@ trait Likeable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function likes(): MorphMany
+    public function likeableLikes(): MorphMany
     {
         return $this->morphMany(config('like.models.like'), 'likeable');
     }
