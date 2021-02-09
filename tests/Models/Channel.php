@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests\Models;
+namespace LaravelInteraction\Like\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Zing\LaravelLike\Concerns\Likeable;
+use LaravelInteraction\Like\Concerns\Likeable;
 
 /**
- * @method static \Zing\LaravelLike\Tests\Models\Channel|\Illuminate\Database\Eloquent\Builder query()
+ * @method static \LaravelInteraction\Like\Tests\Models\Channel|\Illuminate\Database\Eloquent\Builder query()
  */
 class Channel extends Model
 {

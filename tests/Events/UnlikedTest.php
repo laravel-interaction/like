@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests\Events;
+namespace LaravelInteraction\Like\Tests\Events;
 
 use Illuminate\Support\Facades\Event;
-use Zing\LaravelLike\Events\Unliked;
-use Zing\LaravelLike\Tests\Models\Channel;
-use Zing\LaravelLike\Tests\Models\User;
-use Zing\LaravelLike\Tests\TestCase;
+use LaravelInteraction\Like\Events\Unliked;
+use LaravelInteraction\Like\Tests\Models\Channel;
+use LaravelInteraction\Like\Tests\Models\User;
+use LaravelInteraction\Like\Tests\TestCase;
 
 class UnlikedTest extends TestCase
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Events;
+namespace LaravelInteraction\Like\Events;
 
 use Illuminate\Database\Eloquent\Model;
 

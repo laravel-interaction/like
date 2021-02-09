@@ -26,7 +26,7 @@ composer require laravel-interaction/like
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Zing\LaravelLike\Concerns\Fan;
+use LaravelInteraction\Like\Concerns\Fan;
 
 class User extends Model
 {
@@ -38,7 +38,7 @@ class User extends Model
 
 ```php
 use Illuminate\Database\Eloquent\Model;
-use Zing\LaravelLike\Concerns\Likeable;
+use LaravelInteraction\Like\Concerns\Likeable;
 
 class Channel extends Model
 {
@@ -49,9 +49,9 @@ class Channel extends Model
 ### Fan
 
 ```php
-use Zing\LaravelLike\Tests\Models\Channel;
-/** @var \Zing\LaravelLike\Tests\Models\User $user */
-/** @var \Zing\LaravelLike\Tests\Models\Channel $channel */
+use LaravelInteraction\Like\Tests\Models\Channel;
+/** @var \LaravelInteraction\Like\Tests\Models\User $user */
+/** @var \LaravelInteraction\Like\Tests\Models\Channel $channel */
 // Like to Likeable
 $user->like($channel);
 $user->unlike($channel);
@@ -77,10 +77,10 @@ Channel::query()->whereNotLikedBy($user)->get();
 ### Likeable
 
 ```php
-use Zing\LaravelLike\Tests\Models\User;
-use Zing\LaravelLike\Tests\Models\Channel;
-/** @var \Zing\LaravelLike\Tests\Models\User $user */
-/** @var \Zing\LaravelLike\Tests\Models\Channel $channel */
+use LaravelInteraction\Like\Tests\Models\User;
+use LaravelInteraction\Like\Tests\Models\Channel;
+/** @var \LaravelInteraction\Like\Tests\Models\User $user */
+/** @var \LaravelInteraction\Like\Tests\Models\Channel $channel */
 // Compare Fan
 $channel->isLikedBy($user); 
 $channel->isNotLikedBy($user);
@@ -102,8 +102,8 @@ $channels->each(function (Channel $channel){
 
 | Event | Fired |
 | --- | --- |
-| `Zing\LaravelLike\Events\Liked` | When an object get liked. |
-| `Zing\LaravelLike\Events\Unliked` | When an object get unliked. |
+| `LaravelInteraction\Like\Events\Liked` | When an object get liked. |
+| `LaravelInteraction\Like\Events\Unliked` | When an object get unliked. |
 
 ## License
 

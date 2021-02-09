@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests;
+namespace LaravelInteraction\Like\Tests;
 
 use Illuminate\Support\Carbon;
-use Zing\LaravelLike\Like;
-use Zing\LaravelLike\Tests\Models\Channel;
-use Zing\LaravelLike\Tests\Models\User;
+use LaravelInteraction\Like\Like;
+use LaravelInteraction\Like\Tests\Models\Channel;
+use LaravelInteraction\Like\Tests\Models\User;
 
 class LikeTest extends TestCase
 {
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\Zing\LaravelLike\Tests\Models\User
+     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\LaravelInteraction\Like\Tests\Models\User
      */
     protected $user;
 
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\Zing\LaravelLike\Tests\Models\Channel
+     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\LaravelInteraction\Like\Tests\Models\Channel
      */
     protected $channel;
 
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|\Zing\LaravelLike\Like|null
+     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|\LaravelInteraction\Like\Like|null
      */
     protected $like;
 

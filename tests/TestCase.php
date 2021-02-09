@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests;
+namespace LaravelInteraction\Like\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use LaravelInteraction\Like\LikeServiceProvider;
+use LaravelInteraction\Like\Tests\Models\User;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Zing\LaravelLike\LikeServiceProvider;
-use Zing\LaravelLike\Tests\Models\User;
 
 class TestCase extends BaseTestCase
 {

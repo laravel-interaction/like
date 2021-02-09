@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests\Models;
+namespace LaravelInteraction\Like\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Zing\LaravelLike\Concerns\Fan;
+use LaravelInteraction\Like\Concerns\Fan;
 
 /**
- * @method static \Zing\LaravelLike\Tests\Models\User|\Illuminate\Database\Eloquent\Builder query()
+ * @method static \LaravelInteraction\Like\Tests\Models\User|\Illuminate\Database\Eloquent\Builder query()
  */
 class User extends Model
 {

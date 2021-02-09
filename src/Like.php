@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike;
+namespace LaravelInteraction\Like;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -10,16 +10,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Str;
-use Zing\LaravelLike\Events\Liked;
-use Zing\LaravelLike\Events\Unliked;
+use LaravelInteraction\Like\Events\Liked;
+use LaravelInteraction\Like\Events\Unliked;
 
 /**
  * @property \Illuminate\Database\Eloquent\Model $user
  * @property \Illuminate\Database\Eloquent\Model $fan
  * @property \Illuminate\Database\Eloquent\Model $likeable
  *
- * @method static \Zing\LaravelLike\Like|\Illuminate\Database\Eloquent\Builder withType(string $type)
- * @method static \Zing\LaravelLike\Like|\Illuminate\Database\Eloquent\Builder query()
+ * @method static \LaravelInteraction\Like\Like|\Illuminate\Database\Eloquent\Builder withType(string $type)
+ * @method static \LaravelInteraction\Like\Like|\Illuminate\Database\Eloquent\Builder query()
  */
 class Like extends MorphPivot
 {

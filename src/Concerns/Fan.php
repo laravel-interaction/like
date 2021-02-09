@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Concerns;
+namespace LaravelInteraction\Like\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
- * @property-read \Illuminate\Database\Eloquent\Collection|\Zing\LaravelLike\Like[] $likes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $likes
  * @property-read int|null $likes_count
  */
 trait Fan

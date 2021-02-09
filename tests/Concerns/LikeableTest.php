@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests\Concerns;
+namespace LaravelInteraction\Like\Tests\Concerns;
 
+use LaravelInteraction\Like\Tests\Models\Channel;
+use LaravelInteraction\Like\Tests\Models\User;
+use LaravelInteraction\Like\Tests\TestCase;
 use Mockery;
-use Zing\LaravelLike\Tests\Models\Channel;
-use Zing\LaravelLike\Tests\Models\User;
-use Zing\LaravelLike\Tests\TestCase;
 
 class LikeableTest extends TestCase
 {

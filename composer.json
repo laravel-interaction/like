@@ -27,18 +27,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Zing\\LaravelLike\\": "src"
+            "LaravelInteraction\\Like\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zing\\LaravelLike\\Tests\\": "tests"
+            "LaravelInteraction\\Like\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Zing\\LaravelLike\\LikeServiceProvider"
+                "LaravelInteraction\\Like\\LikeServiceProvider"
             ]
         }
     },

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Zing\LaravelLike\Like;
+use LaravelInteraction\Like\Like;
 
 return [
     'load_migrations' => true,

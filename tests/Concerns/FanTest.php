@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Tests\Concerns;
+namespace LaravelInteraction\Like\Tests\Concerns;
 
-use Zing\LaravelLike\Like;
-use Zing\LaravelLike\Tests\Models\Channel;
-use Zing\LaravelLike\Tests\Models\User;
-use Zing\LaravelLike\Tests\TestCase;
+use LaravelInteraction\Like\Like;
+use LaravelInteraction\Like\Tests\Models\Channel;
+use LaravelInteraction\Like\Tests\Models\User;
+use LaravelInteraction\Like\Tests\TestCase;
 
 class FanTest extends TestCase
 {

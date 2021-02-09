@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike;
+namespace LaravelInteraction\Like;
 
 use Illuminate\Support\ServiceProvider;
 

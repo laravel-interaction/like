@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zing\LaravelLike\Concerns;
+namespace LaravelInteraction\Like\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use function is_a;
 
 /**
- * @property-read \Illuminate\Database\Eloquent\Collection|\Zing\LaravelLike\Like[] $likes
- * @property-read \Illuminate\Database\Eloquent\Collection|\Zing\LaravelLike\Concerns\Fan[] $fans
+ * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $likes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Concerns\Fan[] $fans
  * @property-read int|null $fans_count
  *
  * @method static static|\Illuminate\Database\Eloquent\Builder whereLikedBy(\Illuminate\Database\Eloquent\Model $user)
