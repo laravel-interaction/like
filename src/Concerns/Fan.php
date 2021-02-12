@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
- * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $likes
- * @property-read int|null $likes_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $fanLikes
+ * @property-read int|null $fan_likes_count
  */
 trait Fan
 {
@@ -57,7 +57,7 @@ trait Fan
      */
     public function hasLiked(Model $object): bool
     {
-        return ($this->relationLoaded('likes') ? $this->likes : $this->likes())
+        return ($this->relationLoaded('fanLikes') ? $this->fanLikes : $this->fanLikes())
             ->where('likeable_id', $object->getKey())
             ->where('likeable_type', $object->getMorphClass())
             ->count() > 0;
@@ -71,7 +71,7 @@ trait Fan
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function likes(): HasMany
+    public function fanLikes(): HasMany
     {
         return $this->hasMany(config('like.models.like'), config('like.column_names.user_foreign_key'), $this->getKeyName());
     }

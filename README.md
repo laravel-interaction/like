@@ -62,10 +62,10 @@ $user->hasLiked($channel);
 $user->hasNotLiked($channel);
 
 // Get liked info
-$user->likes()->count(); 
+$user->fanLikes()->count(); 
 
 // with type
-$user->likes()->withType(Channel::class)->count(); 
+$user->fanLikes()->withType(Channel::class)->count(); 
 
 // get liked channels
 Channel::query()->whereLikedBy($user)->get();
