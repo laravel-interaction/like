@@ -10,13 +10,14 @@ use LaravelInteraction\Like\Tests\TestCase;
 use Mockery;
 
 class LikeableTest extends TestCase
-{    public function modelClasses(): array
 {
-    return[
-        [Channel::class],
-        [User::class],
-    ];
-}
+    public function modelClasses(): array
+    {
+        return[
+            [Channel::class],
+            [User::class],
+        ];
+    }
 
     /**
      * @dataProvider modelClasses
@@ -31,6 +32,7 @@ class LikeableTest extends TestCase
         self::assertSame(1, $model->likeableLikes()->count());
         self::assertSame(1, $model->likeableLikes->count());
     }
+
     /**
      * @dataProvider modelClasses
      *
@@ -82,6 +84,7 @@ class LikeableTest extends TestCase
         self::assertSame($twoPrecision, $channel->fansCountForHumans(2));
         self::assertSame($halfDown, $channel->fansCountForHumans(2, PHP_ROUND_HALF_DOWN));
     }
+
     /**
      * @dataProvider modelClasses
      *
@@ -100,6 +103,7 @@ class LikeableTest extends TestCase
         $model->load('fans');
         self::assertFalse($model->isLikedBy($user));
     }
+
     /**
      * @dataProvider modelClasses
      *
@@ -118,6 +122,7 @@ class LikeableTest extends TestCase
         $model->load('fans');
         self::assertTrue($model->isNotLikedBy($user));
     }
+
     /**
      * @dataProvider modelClasses
      *
@@ -132,6 +137,7 @@ class LikeableTest extends TestCase
         $user->unlike($model);
         self::assertSame(0, $model->fans()->count());
     }
+
     /**
      * @dataProvider modelClasses
      *
@@ -146,6 +152,7 @@ class LikeableTest extends TestCase
         self::assertSame(1, $modelClass::query()->whereLikedBy($user)->count());
         self::assertSame(0, $modelClass::query()->whereLikedBy($other)->count());
     }
+
     /**
      * @dataProvider modelClasses
      *
