@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- [#10] Add events
+
+### Changed
+
+- [#13] Support likeable for fan
+- [#12] Compatible with lowest dependencies
+- [#11] Support uuids for likes
+- [#9] Bump codecov/codecov-action from v1.2.0 to v1.2.1
+- [#8] Bump codecov/codecov-action from v1.1.1 to v1.2.0
+
+## [0.1.0] - 2021-01-04
+
 - [#6] Bump codecov/codecov-action from v1.1.0 to v1.1.1
 - [#5] Bump codecov/codecov-action from v1.0.15 to v1.1.0
 - [#4] Bump paambaati/codeclimate-action from v2.7.4 to v2.7.5
@@ -28,3 +42,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#4]: https://github.com/laravel-interaction/like/pull/4
 [#2]: https://github.com/laravel-interaction/like/pull/2
 [0.0.2]: https://github.com/laravel-interaction/like/compare/0.0.1...0.0.2
+[#13]: https://github.com/laravel-interaction/like/pull/13
+[#12]: https://github.com/laravel-interaction/like/pull/12
+[#11]: https://github.com/laravel-interaction/like/pull/11
+[#10]: https://github.com/laravel-interaction/like/pull/10
+[#9]: https://github.com/laravel-interaction/like/pull/9
+[#8]: https://github.com/laravel-interaction/like/pull/8
+[0.1.0]: https://github.com/laravel-interaction/like/compare/0.0.2...0.1.0
