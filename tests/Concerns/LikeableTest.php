@@ -7,7 +7,6 @@ namespace LaravelInteraction\Like\Tests\Concerns;
 use LaravelInteraction\Like\Tests\Models\Channel;
 use LaravelInteraction\Like\Tests\Models\User;
 use LaravelInteraction\Like\Tests\TestCase;
-use Mockery;
 
 class LikeableTest extends TestCase
 {
@@ -50,39 +49,17 @@ class LikeableTest extends TestCase
         self::assertSame(0, $model->fansCount());
     }
 
-    public function data(): array
-    {
-        return [
-            [0, '0', '0', '0'],
-            [1, '1', '1', '1'],
-            [12, '12', '12', '12'],
-            [123, '123', '123', '123'],
-            [12345, '12.3K', '12.35K', '12.34K'],
-            [1234567, '1.2M', '1.23M', '1.23M'],
-            [123456789, '123.5M', '123.46M', '123.46M'],
-            [12345678901, '12.3B', '12.35B', '12.35B'],
-            [1234567890123, '1.2T', '1.23T', '1.23T'],
-            [1234567890123456, '1.2Qa', '1.23Qa', '1.23Qa'],
-            [1234567890123456789, '1.2Qi', '1.23Qi', '1.23Qi'],
-        ];
-    }
-
     /**
-     * @dataProvider data
+     * @dataProvider modelClasses
      *
-     * @param mixed $actual
-     * @param mixed $onePrecision
-     * @param mixed $twoPrecision
-     * @param mixed $halfDown
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
      */
-    public function testFansCountForHumans($actual, $onePrecision, $twoPrecision, $halfDown): void
+    public function testFansCountForHumans(string $modelClass): void
     {
-        $channel = Mockery::mock(Channel::class);
-        $channel->shouldReceive('fansCountForHumans')->passthru();
-        $channel->shouldReceive('fansCount')->andReturn($actual);
-        self::assertSame($onePrecision, $channel->fansCountForHumans());
-        self::assertSame($twoPrecision, $channel->fansCountForHumans(2));
-        self::assertSame($halfDown, $channel->fansCountForHumans(2, PHP_ROUND_HALF_DOWN));
+        $user = User::query()->create();
+        $model = $modelClass::query()->create();
+        $user->like($model);
+        self::assertSame('1', $model->fansCountForHumans());
     }
 
     /**
