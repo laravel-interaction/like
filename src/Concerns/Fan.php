@@ -28,8 +28,6 @@ trait Fan
 
     /**
      * @param \Illuminate\Database\Eloquent\Model $object
-     *
-     * @throws \Exception
      */
     public function unlike(Model $object): void
     {
@@ -42,8 +40,6 @@ trait Fan
 
     /**
      * @param \Illuminate\Database\Eloquent\Model $object
-     *
-     * @throws \Exception
      */
     public function toggleLike(Model $object): void
     {
