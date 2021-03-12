@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.2.0] - 2021-03-01
+
 ### Changed
 
 - [#14] Use support package for numberForHumans
@@ -38,26 +40,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.2] - 2020-11-22
 
-### Changed
-
 - [#2] Make the fans count more readable
 
 ## [0.0.1] - 2020-11-22
 
 - [#1] Bump codecov/codecov-action from v1.0.14 to v1.0.15
 
-[#1]: https://github.com/laravel-interaction/like/pull/1
-[#6]: https://github.com/laravel-interaction/like/pull/6
-[#5]: https://github.com/laravel-interaction/like/pull/5
-[#4]: https://github.com/laravel-interaction/like/pull/4
-[#2]: https://github.com/laravel-interaction/like/pull/2
-[0.0.2]: https://github.com/laravel-interaction/like/compare/0.0.1...0.0.2
+[#15]: https://github.com/laravel-interaction/like/pull/15
+[#14]: https://github.com/laravel-interaction/like/pull/14
 [#13]: https://github.com/laravel-interaction/like/pull/13
 [#12]: https://github.com/laravel-interaction/like/pull/12
 [#11]: https://github.com/laravel-interaction/like/pull/11
 [#10]: https://github.com/laravel-interaction/like/pull/10
 [#9]: https://github.com/laravel-interaction/like/pull/9
 [#8]: https://github.com/laravel-interaction/like/pull/8
+[#6]: https://github.com/laravel-interaction/like/pull/6
+[#5]: https://github.com/laravel-interaction/like/pull/5
+[#4]: https://github.com/laravel-interaction/like/pull/4
+[#2]: https://github.com/laravel-interaction/like/pull/2
+[#1]: https://github.com/laravel-interaction/like/pull/1
+[0.2.0]: https://github.com/laravel-interaction/like/compare/0.1.1...0.2.0
+[0.1.1]: https://github.com/laravel-interaction/like/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/laravel-interaction/like/compare/0.0.2...0.1.0
-[#15]: https://github.com/laravel-interaction/like/pull/15
-[#14]: https://github.com/laravel-interaction/like/pull/14
+[0.0.2]: https://github.com/laravel-interaction/like/compare/0.0.1...0.0.2
