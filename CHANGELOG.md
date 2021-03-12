@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- changelog-linker -->
 
+## [0.2.1] - 2021-03-12
+
+### Removed
+
+- [#16] Remove kodiak and enable github auto-merge
+
 ## Unreleased
 
 ## [0.2.0] - 2021-03-01
@@ -63,3 +69,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.1]: https://github.com/laravel-interaction/like/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/laravel-interaction/like/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/laravel-interaction/like/compare/0.0.1...0.0.2
+[#16]: https://github.com/laravel-interaction/like/pull/16
+[0.2.1]: https://github.com/laravel-interaction/like/compare/0.2.0...0.2.1
