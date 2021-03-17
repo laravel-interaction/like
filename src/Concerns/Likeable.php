@@ -14,13 +14,43 @@ use function is_a;
 /**
  * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $likeableLikes
  * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Concerns\Fan[] $fans
- * @property-read int|null $fans_count
+ * @property-read string|int|null $fans_count
  *
  * @method static static|\Illuminate\Database\Eloquent\Builder whereLikedBy(\Illuminate\Database\Eloquent\Model $user)
  * @method static static|\Illuminate\Database\Eloquent\Builder whereNotLikedBy(\Illuminate\Database\Eloquent\Model $user)
  */
 trait Likeable
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function fans(): BelongsToMany
+    {
+        return $this->morphToMany(
+            config('like.models.user'),
+            'likeable',
+            config('like.models.like'),
+            null,
+            config('like.column_names.user_foreign_key')
+        )->withTimestamps();
+    }
+
+    public function fansCount(): int
+    {
+        if ($this->fans_count !== null) {
+            return (int) $this->fans_count;
+        }
+
+        $this->loadCount('fans');
+
+        return (int) $this->fans_count;
+    }
+
+    public function fansCountForHumans($precision = 1, $mode = PHP_ROUND_HALF_UP, $divisors = null): string
+    {
+        return Interaction::numberForHumans($this->fansCount(), $precision, $mode, $divisors ?? config('like.divisors'));
+    }
+
     /**
      * @param \Illuminate\Database\Eloquent\Model $user
      *
@@ -51,36 +81,6 @@ trait Likeable
     public function likeableLikes(): MorphMany
     {
         return $this->morphMany(config('like.models.like'), 'likeable');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function fans(): BelongsToMany
-    {
-        return $this->morphToMany(
-            config('like.models.user'),
-            'likeable',
-            config('like.models.like'),
-            null,
-            config('like.column_names.user_foreign_key')
-        )->withTimestamps();
-    }
-
-    public function fansCount(): int
-    {
-        if ($this->fans_count !== null) {
-            return (int) $this->fans_count;
-        }
-
-        $this->loadCount('fans');
-
-        return (int) $this->fans_count;
-    }
-
-    public function fansCountForHumans($precision = 1, $mode = PHP_ROUND_HALF_UP, $divisors = null): string
-    {
-        return Interaction::numberForHumans($this->fansCount(), $precision, $mode, $divisors ?? config('like.divisors'));
     }
 
     public function scopeWhereLikedBy(Builder $query, Model $user): Builder
