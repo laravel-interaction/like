@@ -15,35 +15,11 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 trait Fan
 {
     /**
-     * @param \Illuminate\Database\Eloquent\Model $object
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function like(Model $object): void
+    public function fanLikes(): HasMany
     {
-        if ($this->hasLiked($object)) {
-            return;
-        }
-
-        $this->likedItems(get_class($object))->attach($object->getKey());
-    }
-
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $object
-     */
-    public function unlike(Model $object): void
-    {
-        if ($this->hasNotLiked($object)) {
-            return;
-        }
-
-        $this->likedItems(get_class($object))->detach($object->getKey());
-    }
-
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $object
-     */
-    public function toggleLike(Model $object): void
-    {
-        $this->likedItems(get_class($object))->toggle($object->getKey());
+        return $this->hasMany(config('like.models.like'), config('like.column_names.user_foreign_key'), $this->getKeyName());
     }
 
     /**
@@ -65,11 +41,35 @@ trait Fan
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @param \Illuminate\Database\Eloquent\Model $object
      */
-    public function fanLikes(): HasMany
+    public function like(Model $object): void
     {
-        return $this->hasMany(config('like.models.like'), config('like.column_names.user_foreign_key'), $this->getKeyName());
+        if ($this->hasLiked($object)) {
+            return;
+        }
+
+        $this->likedItems(get_class($object))->attach($object->getKey());
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $object
+     */
+    public function toggleLike(Model $object): void
+    {
+        $this->likedItems(get_class($object))->toggle($object->getKey());
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $object
+     */
+    public function unlike(Model $object): void
+    {
+        if ($this->hasNotLiked($object)) {
+            return;
+        }
+
+        $this->likedItems(get_class($object))->detach($object->getKey());
     }
 
     /**

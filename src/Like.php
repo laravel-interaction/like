@@ -23,9 +23,30 @@ use LaravelInteraction\Like\Events\Unliked;
  */
 class Like extends MorphPivot
 {
-    protected function uuids(): bool
+    protected $dispatchesEvents = [
+        'created' => Liked::class,
+        'deleted' => Unliked::class,
+    ];
+
+    protected static function boot(): void
     {
-        return (bool) config('like.uuids');
+        parent::boot();
+
+        static::creating(
+            function (self $like): void {
+                if ($like->uuids()) {
+                    $like->{$like->getKeyName()} = Str::orderedUuid();
+                }
+            }
+        );
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function fan(): BelongsTo
+    {
+        return $this->user();
     }
 
     public function getIncrementing(): bool
@@ -43,51 +64,9 @@ class Like extends MorphPivot
         return $this->uuids() ? 'string' : parent::getKeyType();
     }
 
-    protected $dispatchesEvents = [
-        'created' => Liked::class,
-        'deleted' => Unliked::class,
-    ];
-
     public function getTable()
     {
         return config('like.table_names.likes') ?: parent::getTable();
-    }
-
-    protected static function boot(): void
-    {
-        parent::boot();
-
-        static::creating(
-            function (self $like): void {
-                if ($like->uuids()) {
-                    $like->{$like->getKeyName()} = Str::orderedUuid();
-                }
-            }
-        );
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
-    public function likeable(): MorphTo
-    {
-        return $this->morphTo();
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(config('like.models.user'), config('like.column_names.user_foreign_key'));
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function fan(): BelongsTo
-    {
-        return $this->user();
     }
 
     public function isLikedBy(Model $user): bool
@@ -101,6 +80,14 @@ class Like extends MorphPivot
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function likeable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    /**
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $type
      *
@@ -109,5 +96,18 @@ class Like extends MorphPivot
     public function scopeWithType(Builder $query, string $type): Builder
     {
         return $query->where('likeable_type', app($type)->getMorphClass());
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(config('like.models.user'), config('like.column_names.user_foreign_key'));
+    }
+
+    protected function uuids(): bool
+    {
+        return (bool) config('like.uuids');
     }
 }
