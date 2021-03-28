@@ -48,7 +48,12 @@ trait Likeable
 
     public function fansCountForHumans($precision = 1, $mode = PHP_ROUND_HALF_UP, $divisors = null): string
     {
-        return Interaction::numberForHumans($this->fansCount(), $precision, $mode, $divisors ?? config('like.divisors'));
+        return Interaction::numberForHumans(
+            $this->fansCount(),
+            $precision,
+            $mode,
+            $divisors ?? config('like.divisors')
+        );
     }
 
     /**
@@ -67,7 +72,8 @@ trait Likeable
         }
 
         return ($this->relationLoaded('likeableLikes') ? $this->likeableLikes : $this->likeableLikes())
-            ->where(config('like.column_names.user_foreign_key'), $user->getKey())->count() > 0;
+            ->where(config('like.column_names.user_foreign_key'), $user->getKey())
+            ->count() > 0;
     }
 
     public function isNotLikedBy(Model $user): bool

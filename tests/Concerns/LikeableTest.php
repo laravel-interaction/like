@@ -12,10 +12,7 @@ class LikeableTest extends TestCase
 {
     public function modelClasses(): array
     {
-        return[
-            [Channel::class],
-            [User::class],
-        ];
+        return[[Channel::class], [User::class]];
     }
 
     /**
@@ -141,7 +138,10 @@ class LikeableTest extends TestCase
         $other = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame($modelClass::query()->whereKeyNot($model->getKey())->count(), $modelClass::query()->whereNotLikedBy($user)->count());
+        self::assertSame(
+            $modelClass::query()->whereKeyNot($model->getKey())->count(),
+            $modelClass::query()->whereNotLikedBy($user)->count()
+        );
         self::assertSame($modelClass::query()->count(), $modelClass::query()->whereNotLikedBy($other)->count());
     }
 }

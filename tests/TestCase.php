@@ -35,19 +35,15 @@ class TestCase extends BaseTestCase
 
     protected function getEnvironmentSetUp($app): void
     {
-        config(
-            [
-                'database.default' => 'testing',
-                'like.models.user' => User::class,
-                'like.uuids' => true,
-            ]
-        );
+        config([
+            'database.default' => 'testing',
+            'like.models.user' => User::class,
+            'like.uuids' => true,
+        ]);
     }
 
     protected function getPackageProviders($app): array
     {
-        return [
-            LikeServiceProvider::class,
-        ];
+        return [LikeServiceProvider::class];
     }
 }
