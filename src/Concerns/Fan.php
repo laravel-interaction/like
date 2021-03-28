@@ -79,6 +79,6 @@ trait Fan
      */
     protected function likedItems(string $class): MorphToMany
     {
-        return $this->morphedByMany($class, 'likeable', config('like.models.like'), config('like.column_names.user_foreign_key'), 'likeable_id')->withTimestamps();
+        return $this->morphedByMany($class, 'likeable', config('like.models.like'), config('like.column_names.user_foreign_key'))->withTimestamps();
     }
 }
