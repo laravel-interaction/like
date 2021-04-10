@@ -14,6 +14,8 @@ use LaravelInteraction\Like\Events\Liked;
 use LaravelInteraction\Like\Events\Unliked;
 
 /**
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Database\Eloquent\Model $user
  * @property \Illuminate\Database\Eloquent\Model $fan
  * @property \Illuminate\Database\Eloquent\Model $likeable

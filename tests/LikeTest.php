@@ -12,17 +12,17 @@ use LaravelInteraction\Like\Tests\Models\User;
 class LikeTest extends TestCase
 {
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\LaravelInteraction\Like\Tests\Models\User
+     * @var \LaravelInteraction\Like\Tests\Models\User
      */
     protected $user;
 
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\LaravelInteraction\Like\Tests\Models\Channel
+     * @var \LaravelInteraction\Like\Tests\Models\Channel
      */
     protected $channel;
 
     /**
-     * @var \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|\LaravelInteraction\Like\Like|null
+     * @var \LaravelInteraction\Like\Like
      */
     protected $like;
 
@@ -33,7 +33,7 @@ class LikeTest extends TestCase
         $this->user = User::query()->create();
         $this->channel = Channel::query()->create();
         $this->user->like($this->channel);
-        $this->like = Like::query()->first();
+        $this->like = Like::query()->firstOrFail();
     }
 
     public function testLikeTimestamp(): void
