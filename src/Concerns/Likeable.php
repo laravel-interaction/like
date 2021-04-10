@@ -66,8 +66,9 @@ trait Likeable
         if (! is_a($user, config('like.models.user'))) {
             return false;
         }
+        $fansThisRelationLoaded = $this->relationLoaded('fans');
 
-        if ($this->relationLoaded('fans')) {
+        if ($fansThisRelationLoaded) {
             return $this->fans->contains($user);
         }
 
