@@ -18,9 +18,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testLikes(string $modelClass): void
+    public function testLikes($modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -32,9 +32,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testFansCount(string $modelClass): void
+    public function testFansCount($modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -49,9 +49,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testFansCountForHumans(string $modelClass): void
+    public function testFansCountForHumans($modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -62,9 +62,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testIsLikedBy(string $modelClass): void
+    public function testIsLikedBy($modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -81,9 +81,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testIsNotLikedBy(string $modelClass): void
+    public function testIsNotLikedBy($modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -100,9 +100,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testFans(string $modelClass): void
+    public function testFans($modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -115,9 +115,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testScopeWhereLikedBy(string $modelClass): void
+    public function testScopeWhereLikedBy($modelClass): void
     {
         $user = User::query()->create();
         $other = User::query()->create();
@@ -130,9 +130,9 @@ class LikeableTest extends TestCase
     /**
      * @dataProvider modelClasses
      *
-     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel|string $modelClass
+     * @param \LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel $modelClass
      */
-    public function testScopeWhereNotLikedBy(string $modelClass): void
+    public function testScopeWhereNotLikedBy($modelClass): void
     {
         $user = User::query()->create();
         $other = User::query()->create();
