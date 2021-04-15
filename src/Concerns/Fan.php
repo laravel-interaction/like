@@ -49,8 +49,8 @@ trait Fan
      */
     public function like(Model $object): void
     {
-        $thisHasLiked = $this->hasLiked($object);
-        if ($thisHasLiked) {
+        $hasLiked = $this->hasLiked($object);
+        if ($hasLiked) {
             return;
         }
 
@@ -72,8 +72,8 @@ trait Fan
      */
     public function unlike(Model $object): void
     {
-        $thisHasNotLiked = $this->hasNotLiked($object);
-        if ($thisHasNotLiked) {
+        $hasNotLiked = $this->hasNotLiked($object);
+        if ($hasNotLiked) {
             return;
         }
 
