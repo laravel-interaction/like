@@ -7,6 +7,7 @@ namespace LaravelInteraction\Like\Concerns;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use LaravelInteraction\Like\Like;
 
 /**
  * @property-read \Illuminate\Database\Eloquent\Collection|\LaravelInteraction\Like\Like[] $fanLikes
@@ -46,38 +47,56 @@ trait Fan
 
     /**
      * @param \Illuminate\Database\Eloquent\Model $object
+     *
+     * @return \LaravelInteraction\Like\Like
      */
-    public function like(Model $object): void
+    public function like(Model $object): Like
     {
-        $hasLiked = $this->hasLiked($object);
-        if ($hasLiked) {
-            return;
-        }
+        $attributes = [
+            'likeable_id' => $object->getKey(),
+            'likeable_type' => $object->getMorphClass(),
+        ];
 
-        $this->likedItems(get_class($object))
-            ->attach($object->getKey());
+        return $this->fanLikes()
+            ->where($attributes)
+            ->firstOr(function () use ($attributes) {
+                $fanLikesLoaded = $this->relationLoaded('fanLikes');
+                if ($fanLikesLoaded) {
+                    $this->unsetRelation('fanLikes');
+                }
+
+                return $this->fanLikes()
+                    ->create($attributes);
+            });
     }
 
     /**
      * @param \Illuminate\Database\Eloquent\Model $object
+     *
+     * @return bool|\LaravelInteraction\Like\Like
      */
-    public function toggleLike(Model $object): void
+    public function toggleLike(Model $object)
     {
-        $this->likedItems(get_class($object))
-            ->toggle($object->getKey());
+        return $this->hasLiked($object) ? $this->unlike($object) : $this->like($object);
     }
 
     /**
      * @param \Illuminate\Database\Eloquent\Model $object
+     *
+     * @return bool
      */
-    public function unlike(Model $object): void
+    public function unlike(Model $object): bool
     {
         $hasNotLiked = $this->hasNotLiked($object);
         if ($hasNotLiked) {
-            return;
+            return true;
+        }
+        $fanLikesLoaded = $this->relationLoaded('fanLikes');
+        if ($fanLikesLoaded) {
+            $this->unsetRelation('fanLikes');
         }
 
-        $this->likedItems(get_class($object))
+        return (bool) $this->likedItems(get_class($object))
             ->detach($object->getKey());
     }
 

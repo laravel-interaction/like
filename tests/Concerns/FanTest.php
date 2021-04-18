@@ -24,6 +24,10 @@ class FanTest extends TestCase
                 'likeable_id' => $channel->getKey(),
             ]
         );
+        $user->load('fanLikes');
+        $user->unlike($channel);
+        $user->load('fanLikes');
+        $user->like($channel);
     }
 
     public function testUnlike(): void
