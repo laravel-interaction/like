@@ -3,13 +3,10 @@
 User like/unlike behaviour for Laravel.
 
 <p align="center">
-<a href="https://github.com/laravel-interaction/like/actions"><img src="https://github.com/laravel-interaction/like/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://codecov.io/gh/laravel-interaction/like"><img src="https://codecov.io/gh/laravel-interaction/like/branch/master/graph/badge.svg" alt="Code Coverage" /></a>
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/downloads" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/v/unstable.svg" alt="Latest Unstable Version"></a>
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/license" alt="License"></a>
-<a href="https://codeclimate.com/github/laravel-interaction/like/maintainability"><img src="https://api.codeclimate.com/v1/badges/8afd0df31b4b1afcd51d/maintainability" alt="Code Climate" /></a>
 </p>
 
 > **Requires [PHP 7.2.0+](https://php.net/releases/)**
