@@ -14,5 +14,6 @@ use LaravelInteraction\Like\Concerns\Likeable;
 class User extends Model
 {
     use Fan;
+
     use Likeable;
 }
