@@ -43,9 +43,6 @@ class Like extends MorphPivot
         );
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function fan(): BelongsTo
     {
         return $this->user();
@@ -85,28 +82,16 @@ class Like extends MorphPivot
         return $object->is($this->likeable);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
     public function likeable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param string $type
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
     public function scopeWithType(Builder $query, string $type): Builder
     {
         return $query->where('likeable_type', app($type)->getMorphClass());
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(config('like.models.user'), config('like.column_names.user_foreign_key'));

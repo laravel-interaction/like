@@ -21,9 +21,6 @@ use function is_a;
  */
 trait Likeable
 {
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function fans(): BelongsToMany
     {
         return $this->morphToMany(
@@ -56,11 +53,6 @@ trait Likeable
         );
     }
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $user
-     *
-     * @return bool
-     */
     public function isLikedBy(Model $user): bool
     {
         if (! is_a($user, config('like.models.user'))) {
@@ -82,9 +74,6 @@ trait Likeable
         return ! $this->isLikedBy($user);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-     */
     public function likeableLikes(): MorphMany
     {
         return $this->morphMany(config('like.models.like'), 'likeable');

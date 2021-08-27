@@ -13,11 +13,6 @@ class Liked
      */
     public $like;
 
-    /**
-     * Liked constructor.
-     *
-     * @param \Illuminate\Database\Eloquent\Model $like
-     */
     public function __construct(Model $like)
     {
         $this->like = $like;

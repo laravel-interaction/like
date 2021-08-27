@@ -15,9 +15,6 @@ use LaravelInteraction\Like\Like;
  */
 trait Fan
 {
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function fanLikes(): HasMany
     {
         return $this->hasMany(
@@ -27,11 +24,6 @@ trait Fan
         );
     }
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $object
-     *
-     * @return bool
-     */
     public function hasLiked(Model $object): bool
     {
         return ($this->relationLoaded('fanLikes') ? $this->fanLikes : $this->fanLikes())
@@ -45,11 +37,6 @@ trait Fan
         return ! $this->hasLiked($object);
     }
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $object
-     *
-     * @return \LaravelInteraction\Like\Like
-     */
     public function like(Model $object): Like
     {
         $attributes = [
@@ -71,8 +58,6 @@ trait Fan
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Model $object
-     *
      * @return bool|\LaravelInteraction\Like\Like
      */
     public function toggleLike(Model $object)
@@ -80,11 +65,6 @@ trait Fan
         return $this->hasLiked($object) ? $this->unlike($object) : $this->like($object);
     }
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $object
-     *
-     * @return bool
-     */
     public function unlike(Model $object): bool
     {
         $hasNotLiked = $this->hasNotLiked($object);
@@ -100,11 +80,6 @@ trait Fan
             ->detach($object->getKey());
     }
 
-    /**
-     * @param string $class
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
     protected function likedItems(string $class): MorphToMany
     {
         return $this->morphedByMany(
