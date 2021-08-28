@@ -48,10 +48,12 @@ class Like extends MorphPivot
         return $this->user();
     }
 
+    public $incrementing = true;
+
     public function getIncrementing(): bool
     {
         if ($this->uuids()) {
-            return true;
+            return false;
         }
 
         return parent::getIncrementing();
