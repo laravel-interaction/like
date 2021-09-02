@@ -71,6 +71,7 @@ trait Fan
         if ($hasNotLiked) {
             return true;
         }
+
         $fanLikesLoaded = $this->relationLoaded('fanLikes');
         if ($fanLikesLoaded) {
             $this->unsetRelation('fanLikes');

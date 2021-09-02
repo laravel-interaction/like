@@ -58,6 +58,7 @@ trait Likeable
         if (! is_a($user, config('like.models.user'))) {
             return false;
         }
+
         $fansLoaded = $this->relationLoaded('fans');
 
         if ($fansLoaded) {
