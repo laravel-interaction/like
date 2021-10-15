@@ -9,7 +9,10 @@ use LaravelInteraction\Like\Tests\Models\Channel;
 use LaravelInteraction\Like\Tests\Models\User;
 use LaravelInteraction\Like\Tests\TestCase;
 
-class FanTest extends TestCase
+/**
+ * @internal
+ */
+final class FanTest extends TestCase
 {
     public function testLike(): void
     {

@@ -9,5 +9,8 @@ use LaravelInteraction\Support\InteractionServiceProvider;
 
 class LikeServiceProvider extends InteractionServiceProvider
 {
+    /**
+     * @var string
+     */
     protected $interaction = InteractionList::LIKE;
 }

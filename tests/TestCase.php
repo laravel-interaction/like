@@ -10,7 +10,7 @@ use LaravelInteraction\Like\LikeServiceProvider;
 use LaravelInteraction\Like\Tests\Models\User;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
-class TestCase extends BaseTestCase
+abstract class TestCase extends BaseTestCase
 {
     protected function setUp(): void
     {

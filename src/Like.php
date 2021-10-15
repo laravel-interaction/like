@@ -25,6 +25,9 @@ use LaravelInteraction\Like\Events\Unliked;
  */
 class Like extends MorphPivot
 {
+    /**
+     * @var array<string, class-string<\LaravelInteraction\Like\Events\Liked>>|array<string, class-string<\LaravelInteraction\Like\Events\Unliked>>
+     */
     protected $dispatchesEvents = [
         'created' => Liked::class,
         'deleted' => Unliked::class,
@@ -48,6 +51,9 @@ class Like extends MorphPivot
         return $this->user();
     }
 
+    /**
+     * @var bool
+     */
     public $incrementing = true;
 
     public function getIncrementing(): bool

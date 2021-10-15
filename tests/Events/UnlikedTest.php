@@ -10,7 +10,10 @@ use LaravelInteraction\Like\Tests\Models\Channel;
 use LaravelInteraction\Like\Tests\Models\User;
 use LaravelInteraction\Like\Tests\TestCase;
 
-class UnlikedTest extends TestCase
+/**
+ * @internal
+ */
+final class UnlikedTest extends TestCase
 {
     public function testOnce(): void
     {

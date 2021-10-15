@@ -43,7 +43,7 @@ trait Likeable
         return (int) $this->fans_count;
     }
 
-    public function fansCountForHumans($precision = 1, $mode = PHP_ROUND_HALF_UP, $divisors = null): string
+    public function fansCountForHumans(int $precision = 1, int $mode = PHP_ROUND_HALF_UP, $divisors = null): string
     {
         return Interaction::numberForHumans(
             $this->fansCount(),
@@ -84,7 +84,7 @@ trait Likeable
     {
         return $query->whereHas(
             'fans',
-            function (Builder $query) use ($user) {
+            function (Builder $query) use ($user): \Illuminate\Database\Eloquent\Builder {
                 return $query->whereKey($user->getKey());
             }
         );
@@ -94,7 +94,7 @@ trait Likeable
     {
         return $query->whereDoesntHave(
             'fans',
-            function (Builder $query) use ($user) {
+            function (Builder $query) use ($user): \Illuminate\Database\Eloquent\Builder {
                 return $query->whereKey($user->getKey());
             }
         );

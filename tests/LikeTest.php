@@ -9,22 +9,25 @@ use LaravelInteraction\Like\Like;
 use LaravelInteraction\Like\Tests\Models\Channel;
 use LaravelInteraction\Like\Tests\Models\User;
 
-class LikeTest extends TestCase
+/**
+ * @internal
+ */
+final class LikeTest extends TestCase
 {
     /**
      * @var \LaravelInteraction\Like\Tests\Models\User
      */
-    protected $user;
+    private $user;
 
     /**
      * @var \LaravelInteraction\Like\Tests\Models\Channel
      */
-    protected $channel;
+    private $channel;
 
     /**
      * @var \LaravelInteraction\Like\Like
      */
-    protected $like;
+    private $like;
 
     protected function setUp(): void
     {
