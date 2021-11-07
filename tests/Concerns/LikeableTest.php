@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaravelInteraction\Like\Tests\Concerns;
 
+use Iterator;
 use LaravelInteraction\Like\Tests\Models\Channel;
 use LaravelInteraction\Like\Tests\Models\User;
 use LaravelInteraction\Like\Tests\TestCase;
@@ -16,7 +17,7 @@ final class LikeableTest extends TestCase
     /**
      * @return \Iterator<array<class-string<\LaravelInteraction\Like\Tests\Models\Channel|\LaravelInteraction\Like\Tests\Models\User>>>
      */
-    public function provideModelClasses(): \Iterator
+    public function provideModelClasses(): Iterator
     {
         yield [Channel::class];
         yield [User::class];
