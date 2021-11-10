@@ -43,6 +43,9 @@ trait Likeable
         return (int) $this->fans_count;
     }
 
+    /**
+     * @param array<int, string>|null $divisors
+     */
     public function fansCountForHumans(int $precision = 1, int $mode = PHP_ROUND_HALF_UP, $divisors = null): string
     {
         return Interaction::numberForHumans(
