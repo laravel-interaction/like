@@ -9,7 +9,7 @@ User like/unlike behaviour for Laravel.
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/license" alt="License"></a>
 </p>
 
-> **Requires [PHP 7.2.0+](https://php.net/releases/)**
+> **Requires [PHP 7.3+](https://php.net/releases/)**
 
 Require Laravel Like using [Composer](https://getcomposer.org):
 
