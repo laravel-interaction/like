@@ -75,7 +75,7 @@ class Like extends MorphPivot
         return $this->uuids() ? 'string' : parent::getKeyType();
     }
 
-    public function getTable()
+    public function getTable(): string
     {
         return config('like.table_names.likes') ?: parent::getTable();
     }
