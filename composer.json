@@ -3,6 +3,11 @@
     "description": "User like/unlike behaviour for Laravel.",
     "keywords": ["laravel", "like"],
     "license": "MIT",
+    "homepage": "https://github.com/laravel-interaction/like",
+    "support": {
+        "issues": "https://github.com/laravel-interaction/like/issues",
+        "source": "https://github.com/laravel-interaction/like"
+    },
     "authors": [
         {
             "name": "zingimmick",
