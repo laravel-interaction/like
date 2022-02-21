@@ -77,7 +77,7 @@ trait Fan
             $this->unsetRelation('fanLikes');
         }
 
-        return (bool) $this->likedItems(get_class($object))
+        return (bool) $this->likedItems(\get_class($object))
             ->detach($object->getKey());
     }
 
