@@ -14,7 +14,7 @@ class CreateLikesTable extends Migration
     public function up(): void
     {
         Schema::create(
-            config('like.table_names.likes'),
+            config('like.table_names.pivot'),
             function (Blueprint $table): void {
                 config('like.uuids') ? $table->uuid('uuid') : $table->bigIncrements('id');
                 $table->unsignedBigInteger(config('like.column_names.user_foreign_key'))

@@ -77,7 +77,7 @@ class Like extends MorphPivot
 
     public function getTable(): string
     {
-        return config('like.table_names.likes') ?: parent::getTable();
+        return config('like.table_names.pivot') ?: parent::getTable();
     }
 
     public function isLikedBy(Model $user): bool

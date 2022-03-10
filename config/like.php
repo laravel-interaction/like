@@ -9,10 +9,10 @@ return [
     'uuids' => false,
     'models' => [
         'user' => \App\User::class,
-        'like' => Like::class,
+        'pivot' => Like::class,
     ],
     'table_names' => [
-        'likes' => 'likes',
+        'pivot' => 'likes',
     ],
     'column_names' => [
         'user_foreign_key' => 'user_id',

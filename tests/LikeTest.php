@@ -53,7 +53,7 @@ final class LikeTest extends TestCase
 
     public function testGetTable(): void
     {
-        self::assertSame(config('like.table_names.likes'), $this->like->getTable());
+        self::assertSame(config('like.table_names.pivot'), $this->like->getTable());
     }
 
     public function testFan(): void

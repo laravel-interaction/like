@@ -26,7 +26,7 @@ trait Likeable
         return $this->morphToMany(
             config('like.models.user'),
             'likeable',
-            config('like.models.like'),
+            config('like.models.pivot'),
             null,
             config('like.column_names.user_foreign_key')
         )->withTimestamps();
@@ -80,7 +80,7 @@ trait Likeable
 
     public function likeableLikes(): MorphMany
     {
-        return $this->morphMany(config('like.models.like'), 'likeable');
+        return $this->morphMany(config('like.models.pivot'), 'likeable');
     }
 
     public function scopeWhereLikedBy(Builder $query, Model $user): Builder
