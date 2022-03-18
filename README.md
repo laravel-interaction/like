@@ -9,12 +9,39 @@ User like/unlike behaviour for Laravel.
 <a href="https://packagist.org/packages/laravel-interaction/like"><img src="https://poser.pugx.org/laravel-interaction/like/license" alt="License"></a>
 </p>
 
-> **Requires [PHP 7.3+](https://php.net/releases/)**
+## Introduction
 
-Require Laravel Like using [Composer](https://getcomposer.org):
+It let people express how they feel about the model(documentation/subject/topic).
+
+![](https://img.shields.io/badge/%E2%9D%A4-1.2k-green?style=social)
+
+## Installation
+
+### Requirements
+
+- [PHP 7.3+](https://php.net/releases/)
+- [Composer](https://getcomposer.org)
+- [Laravel 8.0+](https://laravel.com/docs/releases)
+
+### Instructions
+
+Require Laravel Like using [Composer](https://getcomposer.org).
 
 ```bash
 composer require laravel-interaction/like
+```
+
+Publish configuration and migrations
+
+```bash
+php artisan vendor:publish --tag=like-config
+php artisan vendor:publish --tag=like-migrations
+```
+
+Run database migrations.
+
+```bash
+php artisan migrate
 ```
 
 ## Usage
