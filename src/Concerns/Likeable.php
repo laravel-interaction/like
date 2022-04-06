@@ -44,6 +44,8 @@ trait Likeable
     }
 
     /**
+     * @phpstan-param 1|2|3|4 $mode
+     *
      * @param array<int, string>|null $divisors
      */
     public function fansCountForHumans(int $precision = 1, int $mode = PHP_ROUND_HALF_UP, $divisors = null): string
