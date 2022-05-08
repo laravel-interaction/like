@@ -29,7 +29,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testLikes($modelClass): void
+    public function testLikes(string $modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -43,7 +43,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testFansCount($modelClass): void
+    public function testFansCount(string $modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -60,7 +60,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testFansCountForHumans($modelClass): void
+    public function testFansCountForHumans(string $modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -73,7 +73,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testIsLikedBy($modelClass): void
+    public function testIsLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -92,7 +92,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testIsNotLikedBy($modelClass): void
+    public function testIsNotLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -111,7 +111,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testFans($modelClass): void
+    public function testFans(string $modelClass): void
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
@@ -126,7 +126,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testScopeWhereLikedBy($modelClass): void
+    public function testScopeWhereLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
         $other = User::query()->create();
@@ -141,7 +141,7 @@ final class LikeableTest extends TestCase
      *
      * @param class-string<\LaravelInteraction\Like\Tests\Models\User|\LaravelInteraction\Like\Tests\Models\Channel> $modelClass
      */
-    public function testScopeWhereNotLikedBy($modelClass): void
+    public function testScopeWhereNotLikedBy(string $modelClass): void
     {
         $user = User::query()->create();
         $other = User::query()->create();
