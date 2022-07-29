@@ -15,7 +15,7 @@ class CreateLikesTable extends Migration
     {
         Schema::create(
             config('like.table_names.pivot'),
-            function (Blueprint $table): void {
+            static function (Blueprint $table): void {
                 config('like.uuids') ? $table->uuid('uuid') : $table->bigIncrements('id');
                 $table->unsignedBigInteger(config('like.column_names.user_foreign_key'))
                     ->index();

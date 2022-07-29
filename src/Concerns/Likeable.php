@@ -89,7 +89,7 @@ trait Likeable
     {
         return $query->whereHas(
             'fans',
-            function (Builder $query) use ($user): Builder {
+            static function (Builder $query) use ($user): Builder {
                 return $query->whereKey($user->getKey());
             }
         );
@@ -99,7 +99,7 @@ trait Likeable
     {
         return $query->whereDoesntHave(
             'fans',
-            function (Builder $query) use ($user): Builder {
+            static function (Builder $query) use ($user): Builder {
                 return $query->whereKey($user->getKey());
             }
         );
