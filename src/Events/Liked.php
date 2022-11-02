@@ -8,13 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Liked
 {
-    /**
-     * @var \Illuminate\Database\Eloquent\Model
-     */
-    public $like;
-
-    public function __construct(Model $like)
+    public function __construct(public Model $model)
     {
-        $this->like = $like;
     }
 }

@@ -14,20 +14,11 @@ use LaravelInteraction\Like\Tests\Models\User;
  */
 final class LikeTest extends TestCase
 {
-    /**
-     * @var \LaravelInteraction\Like\Tests\Models\User
-     */
-    private $user;
+    private \LaravelInteraction\Like\Tests\Models\User $user;
 
-    /**
-     * @var \LaravelInteraction\Like\Tests\Models\Channel
-     */
-    private $channel;
+    private \LaravelInteraction\Like\Tests\Models\Channel $channel;
 
-    /**
-     * @var \LaravelInteraction\Like\Like
-     */
-    private $like;
+    private \LaravelInteraction\Like\Like $like;
 
     protected function setUp(): void
     {

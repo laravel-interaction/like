@@ -53,10 +53,7 @@ trait Fan
             });
     }
 
-    /**
-     * @return bool|\LaravelInteraction\Like\Like
-     */
-    public function toggleLike(Model $object)
+    public function toggleLike(Model $object): bool|Like
     {
         return $this->hasLiked($object) ? $this->unlike($object) : $this->like($object);
     }
@@ -73,7 +70,7 @@ trait Fan
             $this->unsetRelation('fanLikes');
         }
 
-        return (bool) $this->likedItems(\get_class($object))
+        return (bool) $this->likedItems($object::class)
             ->detach($object->getKey());
     }
 

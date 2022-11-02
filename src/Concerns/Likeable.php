@@ -88,21 +88,14 @@ trait Likeable
 
     public function scopeWhereLikedBy(Builder $query, Model $user): Builder
     {
-        return $query->whereHas(
-            'fans',
-            static function (Builder $query) use ($user): Builder {
-                return $query->whereKey($user->getKey());
-            }
-        );
+        return $query->whereHas('fans', static fn (Builder $query): Builder => $query->whereKey($user->getKey()));
     }
 
     public function scopeWhereNotLikedBy(Builder $query, Model $user): Builder
     {
         return $query->whereDoesntHave(
             'fans',
-            static function (Builder $query) use ($user): Builder {
-                return $query->whereKey($user->getKey());
-            }
+            static fn (Builder $query): Builder => $query->whereKey($user->getKey())
         );
     }
 }
