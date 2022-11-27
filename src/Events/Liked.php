@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Liked
 {
-    public function __construct(public Model $model)
-    {
+    public function __construct(
+        public Model $model
+    ) {
     }
 }
