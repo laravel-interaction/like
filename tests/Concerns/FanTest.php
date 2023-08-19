@@ -86,8 +86,8 @@ final class FanTest extends TestCase
         $user = User::query()->create();
         $channel = Channel::query()->create();
         $user->toggleLike($channel);
-        self::assertSame(1, $user->fanLikes()->count());
-        self::assertSame(1, $user->fanLikes->count());
+        $this->assertSame(1, $user->fanLikes()->count());
+        $this->assertSame(1, $user->fanLikes->count());
     }
 
     public function testHasLiked(): void
@@ -95,10 +95,10 @@ final class FanTest extends TestCase
         $user = User::query()->create();
         $channel = Channel::query()->create();
         $user->toggleLike($channel);
-        self::assertTrue($user->hasLiked($channel));
+        $this->assertTrue($user->hasLiked($channel));
         $user->toggleLike($channel);
         $user->load('fanLikes');
-        self::assertFalse($user->hasLiked($channel));
+        $this->assertFalse($user->hasLiked($channel));
     }
 
     public function testHasNotLiked(): void
@@ -106,8 +106,8 @@ final class FanTest extends TestCase
         $user = User::query()->create();
         $channel = Channel::query()->create();
         $user->toggleLike($channel);
-        self::assertFalse($user->hasNotLiked($channel));
+        $this->assertFalse($user->hasNotLiked($channel));
         $user->toggleLike($channel);
-        self::assertTrue($user->hasNotLiked($channel));
+        $this->assertTrue($user->hasNotLiked($channel));
     }
 }

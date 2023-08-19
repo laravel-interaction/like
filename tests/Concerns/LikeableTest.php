@@ -33,8 +33,8 @@ final class LikeableTest extends TestCase
         $user = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame(1, $model->likeableLikes()->count());
-        self::assertSame(1, $model->likeableLikes->count());
+        $this->assertSame(1, $model->likeableLikes()->count());
+        $this->assertSame(1, $model->likeableLikes->count());
     }
 
     /**
@@ -47,11 +47,11 @@ final class LikeableTest extends TestCase
         $user = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame(1, $model->fansCount());
+        $this->assertSame(1, $model->fansCount());
         $user->unlike($model);
-        self::assertSame(1, $model->fansCount());
+        $this->assertSame(1, $model->fansCount());
         $model->loadCount('fans');
-        self::assertSame(0, $model->fansCount());
+        $this->assertSame(0, $model->fansCount());
     }
 
     /**
@@ -64,7 +64,7 @@ final class LikeableTest extends TestCase
         $user = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame('1', $model->fansCountForHumans());
+        $this->assertSame('1', $model->fansCountForHumans());
     }
 
     /**
@@ -76,14 +76,14 @@ final class LikeableTest extends TestCase
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
-        self::assertFalse($model->isLikedBy($model));
+        $this->assertFalse($model->isLikedBy($model));
         $user->like($model);
-        self::assertTrue($model->isLikedBy($user));
+        $this->assertTrue($model->isLikedBy($user));
         $model->load('fans');
         $user->unlike($model);
-        self::assertTrue($model->isLikedBy($user));
+        $this->assertTrue($model->isLikedBy($user));
         $model->load('fans');
-        self::assertFalse($model->isLikedBy($user));
+        $this->assertFalse($model->isLikedBy($user));
     }
 
     /**
@@ -95,14 +95,14 @@ final class LikeableTest extends TestCase
     {
         $user = User::query()->create();
         $model = $modelClass::query()->create();
-        self::assertTrue($model->isNotLikedBy($model));
+        $this->assertTrue($model->isNotLikedBy($model));
         $user->like($model);
-        self::assertFalse($model->isNotLikedBy($user));
+        $this->assertFalse($model->isNotLikedBy($user));
         $model->load('fans');
         $user->unlike($model);
-        self::assertFalse($model->isNotLikedBy($user));
+        $this->assertFalse($model->isNotLikedBy($user));
         $model->load('fans');
-        self::assertTrue($model->isNotLikedBy($user));
+        $this->assertTrue($model->isNotLikedBy($user));
     }
 
     /**
@@ -115,9 +115,9 @@ final class LikeableTest extends TestCase
         $user = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame(1, $model->fans()->count());
+        $this->assertSame(1, $model->fans()->count());
         $user->unlike($model);
-        self::assertSame(0, $model->fans()->count());
+        $this->assertSame(0, $model->fans()->count());
     }
 
     /**
@@ -131,8 +131,8 @@ final class LikeableTest extends TestCase
         $other = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame(1, $modelClass::query()->whereLikedBy($user)->count());
-        self::assertSame(0, $modelClass::query()->whereLikedBy($other)->count());
+        $this->assertSame(1, $modelClass::query()->whereLikedBy($user)->count());
+        $this->assertSame(0, $modelClass::query()->whereLikedBy($other)->count());
     }
 
     /**
@@ -146,10 +146,10 @@ final class LikeableTest extends TestCase
         $other = User::query()->create();
         $model = $modelClass::query()->create();
         $user->like($model);
-        self::assertSame(
+        $this->assertSame(
             $modelClass::query()->whereKeyNot($model->getKey())->count(),
             $modelClass::query()->whereNotLikedBy($user)->count()
         );
-        self::assertSame($modelClass::query()->count(), $modelClass::query()->whereNotLikedBy($other)->count());
+        $this->assertSame($modelClass::query()->count(), $modelClass::query()->whereNotLikedBy($other)->count());
     }
 }

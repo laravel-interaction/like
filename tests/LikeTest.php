@@ -32,45 +32,45 @@ final class LikeTest extends TestCase
 
     public function testLikeTimestamp(): void
     {
-        self::assertInstanceOf(Carbon::class, $this->like->created_at);
-        self::assertInstanceOf(Carbon::class, $this->like->updated_at);
+        $this->assertInstanceOf(Carbon::class, $this->like->created_at);
+        $this->assertInstanceOf(Carbon::class, $this->like->updated_at);
     }
 
     public function testScopeWithType(): void
     {
-        self::assertSame(1, Like::query()->withType(Channel::class)->count());
-        self::assertSame(0, Like::query()->withType(User::class)->count());
+        $this->assertSame(1, Like::query()->withType(Channel::class)->count());
+        $this->assertSame(0, Like::query()->withType(User::class)->count());
     }
 
     public function testGetTable(): void
     {
-        self::assertSame(config('like.table_names.pivot'), $this->like->getTable());
+        $this->assertSame(config('like.table_names.pivot'), $this->like->getTable());
     }
 
     public function testFan(): void
     {
-        self::assertInstanceOf(User::class, $this->like->fan);
+        $this->assertInstanceOf(User::class, $this->like->fan);
     }
 
     public function testLikeable(): void
     {
-        self::assertInstanceOf(Channel::class, $this->like->likeable);
+        $this->assertInstanceOf(Channel::class, $this->like->likeable);
     }
 
     public function testUser(): void
     {
-        self::assertInstanceOf(User::class, $this->like->user);
+        $this->assertInstanceOf(User::class, $this->like->user);
     }
 
     public function testIsLikedTo(): void
     {
-        self::assertTrue($this->like->isLikedTo($this->channel));
-        self::assertFalse($this->like->isLikedTo($this->user));
+        $this->assertTrue($this->like->isLikedTo($this->channel));
+        $this->assertFalse($this->like->isLikedTo($this->user));
     }
 
     public function testIsLikedBy(): void
     {
-        self::assertFalse($this->like->isLikedBy($this->channel));
-        self::assertTrue($this->like->isLikedBy($this->user));
+        $this->assertFalse($this->like->isLikedBy($this->channel));
+        $this->assertTrue($this->like->isLikedBy($this->user));
     }
 }
