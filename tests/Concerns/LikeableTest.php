@@ -34,7 +34,7 @@ final class LikeableTest extends TestCase
         $model = $modelClass::query()->create();
         $user->like($model);
         $this->assertSame(1, $model->likeableLikes()->count());
-        $this->assertSame(1, $model->likeableLikes->count());
+        $this->assertCount(1, $model->likeableLikes);
     }
 
     /**

@@ -87,7 +87,7 @@ final class FanTest extends TestCase
         $channel = Channel::query()->create();
         $user->toggleLike($channel);
         $this->assertSame(1, $user->fanLikes()->count());
-        $this->assertSame(1, $user->fanLikes->count());
+        $this->assertCount(1, $user->fanLikes);
     }
 
     public function testHasLiked(): void
